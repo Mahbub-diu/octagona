@@ -1150,6 +1150,46 @@
         },
       },
     });
+    function updateFirstVisibleSlide($slider) {
+      setTimeout(function () {
+        var $activeItems = $slider.find('.owl-stage .owl-item.active');
+        $slider.find('.owl-stage .owl-item').removeClass('first-visible');
+        $activeItems.first().addClass('first-visible');
+      }, 10); // slight delay ensures DOM is updated
+    }
+
+    var $slider = $('.operiamo-slider');
+
+    $slider.owlCarousel({
+      loop: true,
+      margin: 35,
+      nav: true,
+      responsiveClass: true,
+      center: true,
+      dots: false,
+      responsive: {
+        0: {
+          items: 1,
+        },
+        600: {
+          items: 2,
+        },
+        1000: {
+          items: 3,
+        },
+      },
+    });
+
+    $slider.on(
+      'initialized.owl.carousel changed.owl.carousel refreshed.owl.carousel',
+      function () {
+        updateFirstVisibleSlide($slider);
+      }
+    );
+
+    $(window).on('load', function () {
+      updateFirstVisibleSlide($slider);
+    });
 
     // js added by me end
   });
