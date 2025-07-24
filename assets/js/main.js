@@ -1191,6 +1191,73 @@
       updateFirstVisibleSlide($slider);
     });
 
+    const counters = document.querySelectorAll('.count');
+
+    const runCounter = (el) => {
+      const $el = $(el);
+      const target = parseInt($el.attr('data-count'), 10);
+      $({ countNum: 0 }).animate(
+        { countNum: target },
+        {
+          duration: 2000,
+          easing: 'swing',
+          step: function () {
+            $el.text(Math.floor(this.countNum));
+          },
+          complete: function () {
+            $el.text(this.countNum);
+          },
+        }
+      );
+    };
+
+    const observer = new IntersectionObserver(
+      (entries, observerInstance) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            runCounter(entry.target);
+            observerInstance.unobserve(entry.target); // run once
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    counters.forEach((counter) => observer.observe(counter));
+
+    $('.clienti-slider').owlCarousel({
+      loop: true,
+      margin: 25,
+      nav: true,
+      responsiveClass: true,
+      dots: false,
+      responsive: {
+        0: {
+          items: 1,
+        },
+        600: {
+          items: 3,
+        },
+        1000: {
+          items: 10,
+        },
+      },
+    });
+    $('#copy-year').text(new Date().getFullYear());
+
+    // header sticky start
+    $(window).scroll(function () {
+      var navbar = $('#main-header');
+
+      if ($(window).scrollTop() >= 110) {
+        $('#header').addClass('fixed-header');
+        navbar.addClass('sticky');
+      } else {
+        $('#header').removeClass('fixed-header');
+        navbar.removeClass('sticky');
+      }
+    });
+    // header sticky start
     // js added by me end
   });
 })(jQuery);
