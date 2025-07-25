@@ -1142,11 +1142,39 @@
         0: {
           items: 1,
         },
-        600: {
-          items: 3,
+        400: {
+          items: 1,
+          margin: 20,
         },
-        1000: {
-          items: 4.5,
+        550: {
+          items: 2,
+          margin: 20,
+          center: false,
+        },
+        600: {
+          items: 2,
+          margin: 20,
+        },
+        900: {
+          items: 3,
+          margin: 20,
+          center: false,
+        },
+        992: {
+          items: 3,
+          margin: 20,
+          center: false,
+        },
+        1100: {
+          items: 3.5,
+          margin: 20,
+        },
+        1300: {
+          items: 4,
+          margin: 30,
+        },
+        1400: {
+          items: 4,
         },
       },
     });
@@ -1171,10 +1199,20 @@
         0: {
           items: 1,
         },
-        600: {
-          items: 2,
+        400: {
+          items: 1,
+          margin: 20,
         },
-        1000: {
+        550: {
+          items: 2,
+          margin: 20,
+          center: false,
+        },
+        900: {
+          items: 3,
+          margin: 25,
+        },
+        1300: {
           items: 3,
         },
       },
@@ -1233,12 +1271,38 @@
       dots: false,
       responsive: {
         0: {
-          items: 1,
+          items: 2,
+          margin: 15,
+        },
+        400: {
+          items: 3,
+          margin: 15,
+        },
+        550: {
+          items: 4,
+          margin: 20,
         },
         600: {
-          items: 3,
+          items: 4,
+          margin: 20,
+        },
+        768: {
+          items: 4,
+          margin: 20,
+        },
+        900: {
+          items: 7,
+          margin: 20,
         },
         1000: {
+          items: 8,
+          margin: 20,
+        },
+        1300: {
+          items: 10,
+          margin: 20,
+        },
+        1400: {
           items: 10,
         },
       },
